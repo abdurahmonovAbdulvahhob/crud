@@ -171,7 +171,7 @@ const Main = () => {
         />
         <br />
         <input
-          className="bg-gray-50 w-full h-10 px-3 mb-3 border border-gray-300 text-white text-sm block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+          className="w-full h-10 px-3 mb-3 dark:bg-gray-700 dark:text-white"
           required
           //   className="w-full h-10 px-3 mb-3"
           ref={tel}
