@@ -136,14 +136,14 @@ const Main = () => {
         action=""
       >
         <input
-          className="w-full h-10 px-3 mb-3 dark:bg-gray-700 dark: text-white"
+          className="w-full h-10 px-3 mb-3 dark:bg-gray-700 dark:text-white"
           value={firstname}
           onChange={(e) => setFirstname(e.target.value)}
           type="text"
           placeholder="firstname"
         />
         <input
-          className="w-full h-10 px-3 mb-3 dark:bg-gray-700 dark: text-white"
+          className="w-full h-10 px-3 mb-3 dark:bg-gray-700 dark:text-white"
           value={lastname}
           onChange={(e) => setLastname(e.target.value)}
           type="text"
@@ -154,7 +154,7 @@ const Main = () => {
         </label>
         <input
           required
-          className="w-full h-10 px-3 mb-3 dark:bg-gray-700 dark: text-white"
+          className="w-full h-10 px-3 mb-3 dark:bg-gray-700 dark:text-white"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           type="text"
@@ -162,7 +162,7 @@ const Main = () => {
         />
         <input
           required
-          className="w-full h-10 px-3 mb-3 dark:bg-gray-700 dark: text-white"
+          className="w-full h-10 px-3 mb-3 dark:bg-gray-700 dark:text-white"
           ref={password}
           type="password"
           placeholder="password"
