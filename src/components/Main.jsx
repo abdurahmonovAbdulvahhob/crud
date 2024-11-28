@@ -172,7 +172,7 @@ const Main = () => {
           maxLength="14"
         />
         <input
-          className="bg-gray-50 w-full h-10 px-3 mb-3 border border-gray-300 text-white text-sm block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block px-3 mb-3 w-full h-10 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           required
           //   className="w-full h-10 px-3 mb-3"
           ref={birthdate}
@@ -182,7 +182,7 @@ const Main = () => {
 
         <select
           id="countries"
-          className="bg-gray-50 w-full h-10 px-3 mb-3 border border-gray-300 text-white text-sm  focus:ring-blue-500 focus:border-blue-500 block  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block px-3 mb-3 w-full h-10 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           onChange={handleCountryChange}
           value={countryCode}
           required
@@ -195,7 +195,7 @@ const Main = () => {
           ))}
         </select>
         <select
-          className="bg-gray-50 w-full h-10 px-3 mb-3 border border-gray-300 text-white text-sm block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block px-3 mb-3 w-full h-10 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           ref={gender}
           required
         >
