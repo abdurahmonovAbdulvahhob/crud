@@ -1,9 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import countries from "../static/countries.json";
+import { MdDarkMode } from "react-icons/md";
+import { MdOutlineDarkMode } from "react-icons/md";
 
 const Main = () => {
   const [valid, setValid] = useState(true);
+  const [mode, setDMode] = useState(true);
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [username, setUsername] = useState("");
@@ -23,6 +26,11 @@ const Main = () => {
     localStorage.setItem("data", JSON.stringify(data));
   }, [data]);
 
+  const setMode = () => {
+    setDMode(!mode);
+    document.body.classList.toggle("dark");
+  };
+
   const handleCountryChange = (e) => {
     const code = e.target.value;
     setCountryCode(code);
@@ -38,7 +46,9 @@ const Main = () => {
     setValid(true);
 
     if (edit) {
-      if(data.some(item => item.username === username && item.id !== edit.id)) {
+      if (
+        data.some((item) => item.username === username && item.id !== edit.id)
+      ) {
         setValid(false);
         //   alert("Username already exists. Please choose a different one.");
         return;
@@ -119,21 +129,21 @@ const Main = () => {
   };
 
   return (
-    <div className="flex gap-5">
+    <div className="flex gap-5 dark:bg-gray-900">
       <form
-        className="w-80 p-5 bg-slate-200 h-screen"
+        className="w-80 p-5 bg-slate-200 h-screen dark:bg-gray-800"
         onSubmit={handleSubmit}
         action=""
       >
         <input
-          className="w-full h-10 px-3 mb-3"
+          className="w-full h-10 px-3 mb-3 dark:bg-gray-700 dark: text-white"
           value={firstname}
           onChange={(e) => setFirstname(e.target.value)}
           type="text"
           placeholder="firstname"
         />
         <input
-          className="w-full h-10 px-3 mb-3"
+          className="w-full h-10 px-3 mb-3 dark:bg-gray-700 dark: text-white"
           value={lastname}
           onChange={(e) => setLastname(e.target.value)}
           type="text"
@@ -144,7 +154,7 @@ const Main = () => {
         </label>
         <input
           required
-          className="w-full h-10 px-3 mb-3"
+          className="w-full h-10 px-3 mb-3 dark:bg-gray-700 dark: text-white"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           type="text"
@@ -152,7 +162,7 @@ const Main = () => {
         />
         <input
           required
-          className="w-full h-10 px-3 mb-3"
+          className="w-full h-10 px-3 mb-3 dark:bg-gray-700 dark: text-white"
           ref={password}
           type="password"
           placeholder="password"
@@ -206,17 +216,29 @@ const Main = () => {
           <option value="other">Other</option>
           <option value="Prefer not to answer">Prefer not to Answer</option>
         </select>
-        <button className="w-full h-10 px-3 mb-3 bg-blue-400">
+        <button className="w-full h-10 px-3 mb-3 bg-blue-400 dark:bg-blue-800 dark:text-gray-100">
           {edit ? "Update" : "Create"}
         </button>
       </form>
       <div className="flex-1 flex gap-3 flex-wrap items-start content-start py-5">
+        <button
+          onClick={setMode}
+          className="w-10 h-10 px-3 text-[30px] dark:text-white"
+        >
+          {mode ? <MdDarkMode /> : <MdOutlineDarkMode />}
+        </button>
         {data?.map((item) => (
           <div
             key={item.id}
-            className="w-72 p-3 shadow text-center flex flex-col gap-2"
+            className="w-72 p-3 shadow text-center text-gray-700 flex flex-col gap-2 dark:bg-gray-700 dark:text-white"
           >
-            <div className="w-20 h-20 bg-slate-300 rounded-full mx-auto"></div>
+            <div className="w-20 h-20 bg-slate-300 rounded-full mx-auto overflow-hidden pt-2">
+              <img
+                className="object-cover"
+                src="https://cdn2.iconfinder.com/data/icons/web-solid/32/user-1024.png"
+                alt=""
+              />
+            </div>
             <h3>{item.firstname}</h3>
             <h3>{item.lastname}</h3>
             <h3>{item.username}</h3>
@@ -228,13 +250,13 @@ const Main = () => {
             <div className="flex gap-3 justify-center">
               <button
                 onClick={() => handleDelete(item.id)}
-                className="bg-red-300 p-1 rounded-lg"
+                className="bg-red-300 p-1 rounded-lg dark:bg-red-800"
               >
                 delete
               </button>
               <button
                 onClick={() => handleEdit(item)}
-                className="bg-green-300 p-1 rounded-lg"
+                className="bg-green-300 p-1 rounded-lg dark:bg-green-700"
               >
                 edit
               </button>
